@@ -163,16 +163,19 @@ body {
         order: 2;
     }
     .menu li {
-        padding: 15px 10px;
+        padding: 10px 10px;
     }
     .menu li.button {
         padding-right: 0;
     }
   }
   .logo img {
-    width: 300px; /* Largura 100% */
-    height: 100px; /* Altura 100% */
     object-fit: cover; /* Redimensionamento da imagem para preencher o espaço */
+}
+.logopag{
+    padding: 0;
+    width: 320px; /* Largura 100% */
+    height: 70px; /* Altura 100% */
 }
 /* Estilos para a lista de carros */
 .car-list {
