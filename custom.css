@@ -33,7 +33,7 @@ a,li {
   }
   #logo img {
     display: ;
-    width: 100px; /* Largura da imagem do logotipo */
+    width: 75px; /* Largura da imagem do logotipo */
     height: auto; /* Altura automática para manter a proporção */
 }
 /* Estilos para a lista de carros */
