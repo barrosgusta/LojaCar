@@ -1,7 +1,15 @@
+* @font-face {
+    src: url(https://fonts.googleapis.com/css2?family=Arimo&display=swap);
+}
+* {
+    font-size: 18px;
+    font-family: 'Arimo', sans-serif;
+}
+
 body {
     align-items: center;
     margin: 0px;
-  
+
     border: 10px;
     text-align: center;
     background-color: #f1f1f1;
@@ -41,14 +49,14 @@ a,li {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 20px;
+    margin: 1px;
 }
 
 .car {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
-    width: 300px;
+    width: 450px;
     text-align: center;
 }
 
@@ -64,4 +72,12 @@ footer {
     padding: 3px;
     bottom: 0;
     width: 100%;
+}
+
+.container{
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 450px;
+    text-align: center;
 }
