@@ -1,0 +1,58 @@
+body {
+    align-items: center;
+    margin: 0px;
+  
+    border: 10px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }.cabecalho_menu {
+    width: 100%;
+    border: 1px inherit black;
+    background-color: rgb(255, 255, 255);;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    writing-mode: horizontal-tb;
+}
+.cabecalho_menu_item {
+    margin: 5 4px;
+    border: #e4e6e8;
+  }
+.ulcabecalho {
+    list-style: none;
+    margin: 1;
+    padding: 0;
+    display: flex;
+    color: #a39292;
+}
+a,li {
+    display: block;
+    color: #060404;
+    text-decoration: none;
+    padding: 9px;
+  }
+  #logo img {
+    display: ;
+    width: 100px; /* Largura da imagem do logotipo */
+    height: auto; /* Altura automática para manter a proporção */
+}
+/* Estilos para a lista de carros */
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.car {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.car img {
+    max-width: 100%;
+    height: auto;
+}
