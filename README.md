@@ -1,2 +1,2 @@
 # LojaCar
- https://github.com/GustavoVerdi/LojaCar#:~:text=gustavoverdi.github.io/LojaCar/
+https://gustavoverdi.github.io/LojaCar/
