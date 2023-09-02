@@ -4,33 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="custom.css">
+    <script type="text/javascript" src="script.js"></script>
     <title>Brsales</title>
-
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+    <script>
+    $(function() {
+    $(".toggle").on("click", function() {
+        if ($(".item").hasClass("active")) {
+            $(".item").removeClass("active");
+        } else {
+            $(".item").addClass("active");
+        }
+    });
+});
+    </script>
 </head>
 <body>
-    <header>          
-        <div class="navbar">
-         <nav class="cabecalho_menu" style="width:100%;">
-          <div id="logo">
-             <img src="./fotos/logo2.jpeg" alt="Logo da Sua Empresa">
-          </div>
-         <ul class="ulcabecalho" colspan="2">
-             <li><a class="cabecalho_menu_item" href="">Início</a></li>
-             <li><a class="cabecalho_menu_item" href="">Anuncie Seu Carro</a></li>
-             <li><a class="cabecalho_menu_item" href="">Suporte</a></li>
-         </ul>
-             </nav>
-         </div>
-         <br>
-     </header>
-
-     <div class="container">
-        <p>dsd</p>
-
-
-     </div>
-     <footer>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><img src="./fotos/logonova.png" alt="Logo da Sua Empresa"></li>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">Anuncie seu Carro</a></li>
+            <li class="item"><a href="#">Sobre</a></li>
+            </li>
+            <li class="item button"><a href="#">Login</a></li>
+            <li class="item button secondary"><a href="#">Cadastro</a></li>
+            <li class="toggle"><span class="bars"></span></li>
+        </ul>
+    </nav>
+    <footer>
         <p>&copy; 2023 BrSales</p>
     </footer>
+</body>
+</html>
+
 </body>
 </html>
