@@ -201,12 +201,13 @@ body {
 }
 /* Estilos para o rodapé */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 3px;
-    bottom: 0;
-    width: 100%;
+  position: absolute; /* Use 'fixed' em vez de 'absolute' se preferir um footer fixo */
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 #Container {
     align-items: center;
@@ -284,14 +285,7 @@ footer {
 
 
 /*  Anúncio Form */
-.containeranuncio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f1f1f1;
-}
-
+/* CSS para centralizar e tornar responsivo o formulário de anúncio */
 .formulario-quadro {
   background-color: white;
   padding: 20px;
@@ -333,12 +327,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .containeranuncio {
-      flex-direction: column;
-  }
-
   .formulario-quadro {
-      max-width: none;
+    max-width: 80%; /* Reduz a largura máxima em telas menores */
   }
 }
 
