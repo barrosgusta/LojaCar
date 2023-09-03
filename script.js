@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     // Script Marca do Veículo
     var select = document.getElementById("car_brand");
@@ -16,3 +17,14 @@
         select.appendChild(option);
     });
     // Obtenha referências para os elementos de seleção
+=======
+    $(function() {
+    $(".toggle").on("click", function() {
+        if ($(".item").hasClass("active")) {
+            $(".item").removeClass("active");
+        } else {
+            $(".item").addClass("active");
+        }
+    });
+});
+>>>>>>> 6b782b1cf0c205987c7407fe90c91f8001884d72
