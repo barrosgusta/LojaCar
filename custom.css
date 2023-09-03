@@ -12,7 +12,6 @@ body {
     align-items: center;
     margin: 0px;
     border: 10px;
-    text-align: center;
     background-color: #f1f1f1;
   }
 /* Basic styling */
@@ -54,6 +53,7 @@ body {
   /* Mobile menu */
   .menu {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -78,7 +78,7 @@ body {
     cursor:pointer;
   }
   .bars {
-    background: #999;
+    background: #f3f3f3;
     display: inline-block;
     height: 2px;
     position: relative;
@@ -87,7 +87,7 @@ body {
   }
   .bars:before,
   .bars:after {
-    background: #999;
+    background: #ffffff;
     content: '';
     display: block;
     height: 100%;
@@ -241,7 +241,9 @@ footer {
     justify-content: space-between; /* Distribuir espaço entre os campos */
     padding: 20px; /* Espaçamento interno do container */
     flex-wrap: wrap; /* Permite que os campos quebrem para a próxima linha */
-}
+    display: flex;
+  }
+
 
 /* Estilos para os campos */
 .campo {
@@ -249,16 +251,20 @@ footer {
     padding: 20px; /* Espaçamento interno dos campos */
     border: 1px solid #ccc; /* Borda para destacar os campos */
     box-sizing: border-box; /* Garante que as bordas não aumentem o tamanho total */
+    align-items: center;
+    
 }
 
 /* Estilos para o campo esquerda */
 .campo-esquerda {
     background-color: #f2f2f2; /* Cor de fundo do campo esquerda */
-}
+    align-items: center;
+  } 
 
 /* Estilos para o campo direita */
 .campo-direita {
     background-color: #e0e0e0; /* Cor de fundo do campo direita */
+    
 }
 
 /* Estilos para tornar responsivo */
@@ -278,6 +284,4 @@ footer {
     width: 450px;
     text-align: center;
 }
-*{
-    border: 1px solid red;
-}
+
