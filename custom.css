@@ -5,7 +5,9 @@
     font-size: 18px;
     font-family: 'Arimo', sans-serif;
 }
-
+.meuCampo{
+    
+}
 body {
     align-items: center;
     margin: 0px;
@@ -231,4 +233,53 @@ footer {
 /* Estilo de hover para o botão */
 .botao:hover {
     background-color: #0056b3; /* Cor de fundo quando o mouse passa sobre o botão */
+}
+
+/* Estilos para o container */
+/* Estilos para o container */
+.container {
+    display: flex; /* Tornar o container um flex container */
+    justify-content: space-between; /* Distribuir espaço entre os campos */
+    padding: 20px; /* Espaçamento interno do container */
+    flex-wrap: wrap; /* Permite que os campos quebrem para a próxima linha */
+}
+
+/* Estilos para os campos */
+.campo {
+    flex: 1; /* Cada campo ocupa 50% do espaço disponível */
+    padding: 20px; /* Espaçamento interno dos campos */
+    border: 1px solid #ccc; /* Borda para destacar os campos */
+    box-sizing: border-box; /* Garante que as bordas não aumentem o tamanho total */
+}
+
+/* Estilos para o campo esquerda */
+.campo-esquerda {
+    background-color: #f2f2f2; /* Cor de fundo do campo esquerda */
+}
+
+/* Estilos para o campo direita */
+.campo-direita {
+    background-color: #e0e0e0; /* Cor de fundo do campo direita */
+}
+
+/* Estilos para tornar responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Coloca os campos um abaixo do outro */
+    }
+    .campo {
+        flex: auto; /* Ocupa o espaço disponível */
+        margin-bottom: 202px; /* Espaçamento entre os campos quando empilhados */
+    }
+}
+.carfoto{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    width: 75vw;
+    text-align: center;
+    box-sizing: border-box;
+}
+*{
+    border: 1px solid red;
 }
