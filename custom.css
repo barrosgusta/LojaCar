@@ -185,7 +185,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1px;
-    color: red;
+    color: rgb(0, 0, 0);
 }
 
 .car {
