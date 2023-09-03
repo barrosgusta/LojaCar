@@ -41,7 +41,7 @@ body {
   .menu li {
     font-size: 16px;
     padding: 15px 5px;
-    white-space: nowrap;
+  /*  white-space: nowrap; */
   }
   .logo a,
   .toggle a {
@@ -54,7 +54,6 @@ body {
   /* Mobile menu */
   .menu {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -156,7 +155,7 @@ body {
         display: none;
     }
     .logo {
-        order: 1;
+        order: 0;
     }
     .item {
         order: 1;
@@ -185,7 +184,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1px;
-    color: rgb(0, 0, 0);
+    color: red;
 }
 
 .car {
@@ -246,7 +245,7 @@ footer {
 
 /* Estilos para os campos */
 .campo {
-    flex: 1; /* Cada campo ocupa 50% do espaço disponível */
+    flex: ; /* Cada campo ocupa 50% do espaço disponível */
     padding: 20px; /* Espaçamento interno dos campos */
     border: 1px solid #ccc; /* Borda para destacar os campos */
     box-sizing: border-box; /* Garante que as bordas não aumentem o tamanho total */
@@ -269,16 +268,15 @@ footer {
     }
     .campo {
         flex: auto; /* Ocupa o espaço disponível */
-        margin-bottom: 202px; /* Espaçamento entre os campos quando empilhados */
+        margin-bottom: 20px; /* Espaçamento entre os campos quando empilhados */
     }
 }
 .carfoto{
     border-radius: 5px;
     padding: 5px;
     margin: 10px;
-    width: 75vw;
+    width: 450px;
     text-align: center;
-    box-sizing: border-box;
 }
 *{
     border: 1px solid red;
