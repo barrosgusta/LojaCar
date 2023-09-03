@@ -60,8 +60,16 @@
             <select name="car_model" id="car_model">
                 <!-- Carros serão carregados dinamicamente aqui com JavaScript -->
             </select>
-            
             <br>
+            <label>Ano Fabricação:</label>
+            <select id="Anofabs" name="Ano de Fabricação">
+                <option value="">Selecione</option>
+            </select>
+            <label>Ano Modelo</label>
+            <select id="Anofabs" name="Ano de Fabricação">
+                <option value="">Selecione</option>
+            </select>
+
         </form>
     </div>
     
@@ -72,29 +80,46 @@
     </footer>
     
 <script>
+
+    //ANO MODELO
+        // Obtenha a referência do elemento de seleção
+        var selectAnofabs = document.getElementById("Anofabs");
+
+        // Obtenha o ano atual
+        var anoAtual = new Date().getFullYear();
+    
+        // Adicione as opções desde 1960 até o ano atual
+        for (var ano = 1960; ano <= anoAtual; ano++) {
+            var option = document.createElement("option");
+            option.value = ano;
+            option.text = ano;
+            selectAnofabs.appendChild(option);
+        }
+        ///////////////////////////////////////////////////
+
     // Obtenha referências para os elementos de seleção
     var carBrandSelect = document.getElementById("car_brand");
     var carModelSelect = document.getElementById("car_model");
 
     // Mapeie marcas para modelos correspondentes
-    var carModels = {
-        "Audi": ["A1", "A3", "A4", "A5", "A6", "A7", "A8", "Q3", "Q5", "Q7", "Q8", "TT", "S3", "S4", "S5", "S6", "S7", "S8", "RS3", "RS4", "RS5", "RS6", "RS7", "RSQ3", "RSQ5", "RSQ8", "e-tron", "Q2", "Q4", "Q6", "Q9", "R8", "100", "200", "50", "80", "90", "V8"],
-        "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "X7", "Z4", "i3", "i4", "i8", "M2", "M3", "M4", "M5", "M6", "X2", "X4", "X6", "X8", "4 Series", "8 Series", "M8", "X3 M", "X4 M", "X5 M", "X6 M", "X7 M", "X5 eDrive", "X3 xDrive30e", "X5 xDrive45e", "X7 xDrive45e", "ALPINA B3", "ALPINA B4", "ALPINA B7", "ALPINA XB7", "iX3", "iX4", "iX5", "iX6"],
-        "Chevrolet": ["Cruze", "Malibu", "Equinox", "Traverse", "Suburban", "Tahoe", "Colorado", "Silverado", "Impala", "Spark", "Bolt EV", "Camaro", "Corvette", "Trax", "Blazer", "Trailblazer", "Sonic", "Express", "Volt", "Avalanche", "Cavalier", "Caprice", "Cobalt", "Lumina", "Nova", "Prizm", "HHR", "Monte Carlo", "C/K Series", "LUV", "R/V Series", "Astro", "Venture", "Uplander", "Tracker", "S-10", "Alero", "Beretta", "Corsica", "Lacetti"],
-        "Ford": ["Focus", "Fusion", "Escape", "Explorer", "Expedition", "EcoSport", "Edge", "Mustang", "Taurus", "Fiesta", "Ranger", "F-150", "Super Duty", "Bronco", "Escape Hybrid", "Fusion Hybrid", "Mustang Mach-E", "Maverick", "Transit", "C-MAX", "Flex", "Police Interceptor Utility", "Police Interceptor Sedan", "Transit Connect", "GT", "F-250", "F-350", "F-450", "F-550", "F-650", "F-750", "E-Series", "Excursion", "Freestyle", "Five Hundred", "Aerostar", "Aspire", "Contour", "Probe", "Tempo"],
-        "Honda": ["Civic", "Accord", "CR-V", "Pilot", "Fit", "HR-V", "Insight", "Odyssey", "Passport", "Ridgeline", "Clarity", "Element", "S2000", "CR-Z", "Prelude", "Integra", "NSX", "City", "Jazz", "Amaze", "WR-V", "Brio", "Mobilio", "BR-V", "Avancier", "UR-V", "Jade", "Elysion", "Rafaga", "Ascot", "Ballade", "Quint", "Domani", "Concerto", "Orthia", "Logo", "Spirior", "Crosstour", "Fit Aria", "ZEST"],
-        "Hyundai": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Kona", "Venue", "Palisade", "Ioniq", "Veloster", "Nexo", "Accent", "Azera", "Equus", "Genesis", "Veracruz", "Terracan", "Stellar", "Pony", "Excel", "Scoupe", "Lavita", "Atos", "Matrix", "Verna", "XG", "Grandeur", "Centennial", "Aslan", "Galloper", "County", "Porter", "Grace", "Lantra", "Avante", "Getz", "i20", "i30", "i40", "ix20", "ix35"],
-        "Jeep": ["Cherokee", "Wrangler", "Grand Cherokee", "Renegade", "Compass", "Gladiator", "Wagoneer", "Commander", "Liberty", "Patriot", "CJ", "Scrambler", "DJ", "Grand Wagoneer", "FC", "Truck", "Forward Control", "Hawk", "Universal", "J-Series", "FJ", "TJ", "YJ", "CJ-2A", "CJ-3A", "CJ-3B", "CJ-5", "CJ-6", "CJ-7", "CJ-8", "CJ-10", "Willys", "Overland", "Jeepster", "ster", "Cherokee (XJ)", "Cherokee (KL)", "Cherokee (SJ)", "Scrambler (CJ-8)"],
-        "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "CLA", "CLS", "A-Class", "B-Class", "GLA", "GLB", "GLC", "GLE", "GLS", "GLK", "M-Class", "G-Class", "R-Class", "SLC", "SLK", "SL", "SLS", "SLR", "AMG GT", "Metris", "Sprinter", "EQC", "GLK-Class", "GLC-Class", "GLE-Class", "GLS-Class", "GLB-Class", "SLS AMG", "GLA-Class", "CLA-Class", "Citan", "Vito", "EQV", "Marco Polo", "EQS", "V-Class", "MB100", "Vario"],
-        "Nissan": ["Altima", "Maxima", "Rogue", "Pathfinder", "Murano", "Frontier", "Titan", "Juke", "Kicks", "Rogue Sport", "Armada", "Quest", "370Z", "GT-R", "Leaf", "NV200", "NV Cargo", "NV Passenger", "Rogue Hybrid", "Sentra", "Versa", "Versa Note", "Micra", "Pulsar", "Tiida", "Sylphy", "Almera", "Latio", "Bluebird", "Teana", "Cefiro", "X-Trail", "Qashqai", "Dualis", "Terrano", "Patrol", "Kicks e-Power", "Terra", "Livina", "Grand Livina"],
-        "Toyota": ["Camry", "Corolla", "Rav4", "Highlander", "Tacoma", "Tundra", "Sienna", "Prius", "Avalon", "Sequoia", "4Runner", "Land Cruiser", "Supra", "Yaris", "Mirai", "C-HR", "Venza", "Matrix", "FJ Cruiser", "Prius c", "Prius v", "Echo", "Celica", "MR2", "Solara", "Previa", "Tercel", "Starlet", "Cressida", "Crown", "Century", "Auris", "Aygo", "Verso", "Avensis", "Urban Cruiser", "Hiace", "Granvia", "RAV4 EV", "Corolla Cross"],
-        "Volkswagen": ["Golf", "Passat", "Tiguan", "Atlas", "Jetta", "Arteon", "ID.3", "T-Roc", "Up!", "Polo", "Amarok", "Touareg", "Golf R", "Golf GTI", "e-Golf", "Golf SportWagen", "Golf Alltrack", "Jetta GLI", "Tiguan Allspace", "ID.4", "ID. Buzz", "ID. Vizzion", "Taos", "Teramont", "Tayron", "Tharu", "Lavida", "Santana", "Magotan", "Phideon", "Lamando", "Virtus", "T-Cross", "Nivus", "CrossFox", "Fox", "Saveiro", "SpaceFox", "Voyage", "Pointer", "Parati"],
-        "Ferrari": ["488 GTB", "F8 Tributo", "Portofino", "812 Superfast", "SF90 Stradale", "Roma", "Monza SP1", "Monza SP2", "SF70H", "LaFerrari", "488 Pista", "488 Spider", "812 GTS", "GTC4Lusso", "GTC4Lusso T", "F12 Berlinetta", "812 Competizione", "812 Competizione A", "296 GTB", "Dino", "458 Italia", "458 Spider", "458 Speciale", "458 Aperta", "California", "California T", "599 GTB Fiorano", "599 GTO", "612 Scaglietti", "456", "550 Maranello", "575M Maranello", "Superamerica", "612 Sessanta", "FXX", "599 SA Aperta", "575 GTZ Zagato", "458 MM Speciale", "SP1 JC", "SP2 JC", "F60 America"],
-        "Lamborghini": ["Aventador", "Huracan", "Urus", "Sian", "Veneno", "Centenario", "Reventon", "Murcielago", "Gallardo", "Diablo", "Countach", "LM002", "Silhouette", "Jalpa", "Urraco", "Espada", "Islero", "400 GT", "350 GT", "Miura", "400 GT 2+2", "350 GTV", "Islero GTS", "Jarama", "Countach LP400", "Silhouette P300", "Jalpa P350", "Urraco P250", "Countach LP500 S", "Countach LP5000 QV", "LM002 LMA002", "Diablo VT", "Diablo VT Roadster", "Diablo SE30", "Diablo SV", "Diablo SVR", "Diablo GT", "Diablo VT 6.0", "Murcielago LP640", "Murcielago LP640 Roadster"],
-        "Porsche": ["911", "Panamera", "Cayenne", "Macan", "Taycan", "718 Boxster", "718 Cayman", "911 GT3", "911 Turbo", "911 GT2 RS", "911 GT3 RS", "918 Spyder", "Carrera GT", "959", "935", "964", "993", "996", "997", "991", "992", "Boxster", "Cayman", "914", "944", "928", "968", "Panamera Sport Turismo", "Macan S", "Macan GTS", "Macan Turbo", "Taycan 4S", "Taycan Turbo", "Taycan Turbo S", "718 Boxster T", "718 Cayman T", "911 Carrera T", "911 Carrera 4", "911 Carrera 4S", "911 Carrera GTS", "911 Carrera 4 GTS"],
-        "Maserati": ["Ghibli", "Levante", "Quattroporte", "GranTurismo", "GranCabrio", "Spyder", "3200 GT", "4200 GT", "Coupe", "GranSport", "Spyder", "MC12", "Shamal", "Karif", "Barchetta Stradale", "Kyalami", "Biturbo", "Mexico", "Indy", "Khamsin", "Merak", "Bora", "Ghibli II", "Quattroporte IV", "Quattroporte V", "Quattroporte VI", "GranTurismo", "GranCabrio", "3200 GT", "4200 GT", "Coupe", "GranSport", "Spyder", "MC12", "Shamal", "Karif", "Barchetta Stradale", "Kyalami", "Biturbo", "Mexico", "Indy", "Khamsin", "Merak", "Bora", "Ghibli II", "Quattroporte IV", "Quattroporte V", "Quattroporte VI", "GranTurismo", "GranCabrio"],
-        "Jaguar": ["XE", "XF", "XJ", "F-PACE", "E-PACE", "I-PACE", "F-TYPE", "XK", "X-Type", "S-Type", "D-Type", "C-Type", "E-Type", "Mark 1", "Mark 2", "Mark X", "420", "XJS", "XJ Series III", "XJ40", "XJ220", "X300", "X308", "X350", "X351", "XK120", "XK140", "XK150", "XKSS", "XK8", "XKR", "XK (X150)", "Mark IV", "Mark V", "Mark VII", "Mark VIII", "Mark IX", "Mark X", "420", "S-Type", "420G", "420 (XK50)", "D-Type", "C-Type", "E-Type", "F-TYPE", "XK (X100)"]
-    };
+var carModels = {
+    "Audi": ["A1", "A3", "A4", "A5", "A6", "A7", "A8", "Q3", "Q5", "Q7", "Q8", "TT", "S3", "S4", "S5", "S6", "S7", "S8", "RS3", "RS4", "RS5", "RS6", "RS7", "RSQ3", "RSQ5", "RSQ8", "e-tron", "Q2", "Q4", "Q6", "Q9", "R8", "100", "200", "50", "80", "90", "V8"],
+    "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "X7", "Z4", "i3", "i4", "i8", "M2", "M3", "M4", "M5", "M6", "X2", "X4", "X6", "X8", "4 Series", "8 Series", "M8", "X3 M", "X4 M", "X5 M", "X6 M", "X7 M", "X5 eDrive", "X3 xDrive30e", "X5 xDrive45e", "X7 xDrive45e", "ALPINA B3", "ALPINA B4", "ALPINA B7", "ALPINA XB7", "iX3", "iX4", "iX5", "iX6"],
+    "Chevrolet": ["Cruze", "Malibu","Chevette", "Equinox", "Traverse", "Suburban", "Tahoe", "Colorado", "Silverado", "Impala", "Spark", "Bolt EV", "Camaro", "Corvette", "Trax", "Blazer", "Trailblazer", "Sonic", "Express", "Volt", "Avalanche", "Cavalier", "Caprice", "Cobalt", "Lumina", "Nova", "Prizm", "HHR", "Monte Carlo", "C/K Series", "LUV", "R/V Series", "Astro", "Venture", "Uplander", "Tracker", "S-10", "Alero", "Beretta", "Corsica", "Lacetti"],
+    "Ford": ["Focus", "Fusion", "Escape", "Explorer", "Expedition", "EcoSport", "Edge", "Mustang", "Taurus", "Fiesta", "Ranger", "F-150", "Super Duty", "Bronco", "Escape Hybrid", "Fusion Hybrid", "Mustang Mach-E", "Maverick", "Transit", "C-MAX", "Flex", "Police Interceptor Utility", "Police Interceptor Sedan", "Transit Connect", "GT", "F-250", "F-350", "F-450", "F-550", "F-650", "F-750", "E-Series", "Excursion", "Freestyle", "Five Hundred", "Aerostar", "Aspire", "Contour", "Probe", "Tempo"],
+    "Honda": ["Civic", "Accord", "CR-V", "Pilot", "Fit", "HR-V", "Insight", "Odyssey", "Passport", "Ridgeline", "Clarity", "Element", "S2000", "CR-Z", "Prelude", "Integra", "NSX", "City", "Jazz", "Amaze", "WR-V", "Brio", "Mobilio", "BR-V", "Avancier", "UR-V", "Jade", "Elysion", "Rafaga", "Ascot", "Ballade", "Quint", "Domani", "Concerto", "Orthia", "Logo", "Spirior", "Crosstour", "Fit Aria", "ZEST"],
+    "Hyundai": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Kona", "Venue", "Palisade", "Ioniq", "Veloster", "Nexo", "Accent", "Azera", "Equus", "Genesis", "Veracruz", "Terracan", "Stellar", "Pony", "Excel", "Scoupe", "Lavita", "Atos", "Matrix", "Verna", "XG", "Grandeur", "Centennial", "Aslan", "Galloper", "County", "Porter", "Grace", "Lantra", "Avante", "Getz", "i20", "i30", "i40", "ix20", "ix35"],
+    "Jeep": ["Cherokee", "Wrangler", "Grand Cherokee", "Renegade", "Compass", "Gladiator", "Wagoneer", "Commander", "Liberty", "Patriot", "CJ", "Scrambler", "DJ", "Grand Wagoneer", "FC", "Truck", "Forward Control", "Hawk", "Universal", "J-Series", "FJ", "TJ", "YJ", "CJ-2A", "CJ-3A", "CJ-3B", "CJ-5", "CJ-6", "CJ-7", "CJ-8", "CJ-10", "Willys", "Overland", "Jeepster", "ster", "Cherokee (XJ)", "Cherokee (KL)", "Cherokee (SJ)", "Scrambler (CJ-8)"],
+    "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "CLA", "CLS", "A-Class", "B-Class", "GLA", "GLB", "GLC", "GLE", "GLS", "GLK", "M-Class", "G-Class", "R-Class", "SLC", "SLK", "SL", "SLS", "SLR", "AMG GT", "Metris", "Sprinter", "EQC", "GLK-Class", "GLC-Class", "GLE-Class", "GLS-Class", "GLB-Class", "SLS AMG", "GLA-Class", "CLA-Class", "Citan", "Vito", "EQV", "Marco Polo", "EQS", "V-Class", "MB100", "Vario"],
+    "Nissan": ["Altima", "Maxima", "Rogue", "Pathfinder", "Murano", "Frontier", "Titan", "Juke", "Kicks", "Rogue Sport", "Armada", "Quest", "370Z", "GT-R", "Leaf", "NV200", "NV Cargo", "NV Passenger", "Rogue Hybrid", "Sentra", "Versa", "Versa Note", "Micra", "Pulsar", "Tiida", "Sylphy", "Almera", "Latio", "Bluebird", "Teana", "Cefiro", "X-Trail", "Qashqai", "Dualis", "Terrano", "Patrol", "Kicks e-Power", "Terra", "Livina", "Grand Livina"],
+    "Toyota": ["Camry", "Corolla", "Rav4", "Highlander", "Tacoma", "Tundra", "Sienna", "Prius", "Avalon", "Sequoia", "4Runner", "Land Cruiser", "Supra", "Yaris", "Mirai", "C-HR", "Venza", "Matrix", "FJ Cruiser", "Prius c", "Prius v", "Echo", "Celica", "MR2", "Solara", "Previa", "Tercel", "Starlet", "Cressida", "Crown", "Century", "Auris", "Aygo", "Verso", "Avensis", "Urban Cruiser", "Hiace", "Granvia", "RAV4 EV", "Corolla Cross"],
+    "Volkswagen": ["Golf", "Passat", "Tiguan", "Atlas", "Jetta", "Arteon", "ID.3", "T-Roc", "Up!", "Polo", "Amarok", "Touareg", "Golf R", "Golf GTI", "e-Golf", "Golf SportWagen", "Golf Alltrack", "Jetta GLI", "Tiguan Allspace", "ID.4", "ID. Buzz", "ID. Vizzion", "Taos", "Teramont", "Tayron", "Tharu", "Lavida", "Santana", "Magotan", "Phideon", "Lamando", "Virtus", "T-Cross", "Nivus", "CrossFox", "Fox", "Saveiro", "SpaceFox", "Voyage", "Pointer", "Parati"],
+    "Ferrari": ["488 GTB", "F8 Tributo", "Portofino", "812 Superfast", "SF90 Stradale", "Roma", "Monza SP1", "Monza SP2", "SF70H", "LaFerrari", "488 Pista", "488 Spider", "812 GTS", "GTC4Lusso", "GTC4Lusso T", "F12 Berlinetta", "812 Competizione", "812 Competizione A", "296 GTB", "Dino", "458 Italia", "458 Spider", "458 Speciale", "458 Aperta", "California", "California T", "599 GTB Fiorano", "599 GTO", "612 Scaglietti", "456", "550 Maranello", "575M Maranello", "Superamerica", "612 Sessanta", "FXX", "599 SA Aperta", "575 GTZ Zagato", "458 MM Speciale", "SP1 JC", "SP2 JC", "F60 America"],
+    "Lamborghini": ["Aventador", "Huracan", "Urus", "Sian", "Veneno", "Centenario", "Reventon", "Murcielago", "Gallardo", "Diablo", "Countach", "LM002", "Silhouette", "Jalpa", "Urraco", "Espada", "Islero", "400 GT", "350 GT", "Miura", "400 GT 2+2", "350 GTV", "Islero GTS", "Jarama", "Countach LP400", "Silhouette P300", "Jalpa P350", "Urraco P250", "Countach LP500 S", "Countach LP5000 QV", "LM002 LMA002", "Diablo VT", "Diablo VT Roadster", "Diablo SE30", "Diablo SV", "Diablo SVR", "Diablo GT", "Diablo VT 6.0", "Murcielago LP640", "Murcielago LP640 Roadster"],
+    "Porsche": ["911", "Panamera", "Cayenne", "Macan", "Taycan", "718 Boxster", "718 Cayman", "911 GT3", "911 Turbo", "911 GT2 RS", "911 GT3 RS", "918 Spyder", "Carrera GT", "959", "935", "964", "993", "996", "997", "991", "992", "Boxster", "Cayman", "914", "944", "928", "968", "Panamera Sport Turismo", "Macan S", "Macan GTS", "Macan Turbo", "Taycan 4S", "Taycan Turbo", "Taycan Turbo S", "718 Boxster T", "718 Cayman T", "911 Carrera T", "911 Carrera 4", "911 Carrera 4S", "911 Carrera GTS", "911 Carrera 4 GTS"],
+    "Maserati": ["Ghibli", "Levante", "Quattroporte", "GranTurismo", "GranCabrio", "Spyder", "3200 GT", "4200 GT", "Coupe", "GranSport", "Spyder", "MC12", "Shamal", "Karif", "Barchetta Stradale", "Kyalami", "Biturbo", "Mexico", "Indy", "Khamsin", "Merak", "Bora", "Ghibli II", "Quattroporte IV", "Quattroporte V", "Quattroporte VI", "GranTurismo", "GranCabrio", "3200 GT", "4200 GT", "Coupe", "GranSport", "Spyder", "MC12", "Shamal", "Karif", "Barchetta Stradale", "Kyalami", "Biturbo", "Mexico", "Indy", "Khamsin", "Merak", "Bora", "Ghibli II", "Quattroporte IV", "Quattroporte V", "Quattroporte VI", "GranTurismo", "GranCabrio"],
+    "Jaguar": ["XE", "XF", "XJ", "F-PACE", "E-PACE", "I-PACE", "F-TYPE", "XK", "X-Type", "S-Type", "D-Type", "C-Type", "E-Type", "Mark 1", "Mark 2", "Mark X", "420", "XJS", "XJ Series III", "XJ40", "XJ220", "X300", "X308", "X350", "X351", "XK120", "XK140", "XK150", "XKSS", "XK8", "XKR", "XK (X150)", "Mark IV", "Mark V", "Mark VII", "Mark VIII", "Mark IX", "Mark X", "420", "S-Type", "420G", "420 (XK50)", "D-Type", "C-Type", "E-Type", "F-TYPE", "XK (X100)"]
+};
 
     // Função para atualizar os modelos com base na marca selecionada
     function updateCarModels() {
@@ -118,7 +143,29 @@
 
     // Adicione um ouvinte de evento para atualizar os modelos quando a marca for alterada
     carBrandSelect.addEventListener("change", updateCarModels);
-</script>s
+    function updateCarModels() {
+        var selectedBrand = carBrandSelect.value;
+        var models = carModels[selectedBrand] || [];
+    
+        // Ordene os modelos em ordem alfabética
+        models.sort();
+    
+        // Limpe o menu suspenso de modelos
+        carModelSelect.innerHTML = "";
+    
+        // Adicione as opções de modelos correspondentes em ordem alfabética
+        models.forEach(function (model) {
+            var option = document.createElement("option");
+            option.text = model;
+            option.value = model;
+            carModelSelect.appendChild(option);
+        });
+    }
+    
+    // Chame a função de atualização ao carregar a página e quando a marca for alterada
+    carBrandSelect.addEventListener("change", updateCarModels);
+    updateCarModels();
+</script>
 </body>
 </html>
 
