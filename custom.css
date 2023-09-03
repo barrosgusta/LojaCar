@@ -1,3 +1,4 @@
+
 * @font-face {
     src: url(https://fonts.googleapis.com/css2?family=Arimo&display=swap);
 }
@@ -285,3 +286,292 @@ footer {
     text-align: center;
 }
 
+=======
+* @font-face {
+    src: url(https://fonts.googleapis.com/css2?family=Arimo&display=swap);
+}
+* {
+    font-size: 18px;
+    font-family: 'Arimo', sans-serif;
+}
+.meuCampo{
+    
+}
+body {
+    align-items: center;
+    margin: 0px;
+    border: 10px;
+    background-color: #f1f1f1;
+  }
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  nav {
+    background: #000000bd;
+    padding: 5px 20px;
+  }
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .logo a:hover {
+    text-decoration: none;
+  }
+  .menu li {
+    font-size: 16px;
+    padding: 15px 5px;
+  /*  white-space: nowrap; */
+  }
+  .logo a,
+  .toggle a {
+    font-size: 20px;
+  }
+  .button.secondary {
+    border-bottom: 1px #444 solid;
+  }
+  
+  /* Mobile menu */
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle {
+    order: 1;
+  }
+  .item.button {
+    order: 2;
+  }
+  .item {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+  }
+  .item.active {
+    display: block;
+  }
+  
+  /* Navbar Toggle */
+  .toggle {
+    cursor:pointer;
+  }
+  .bars {
+    background: #f3f3f3;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  .bars:before,
+  .bars:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  .bars:before {
+    top: 5px;
+  }
+  .bars:after {
+    top: -5px;
+  }
+  
+  /* Tablet menu */
+  @media all and (min-width: 468px) {
+    .menu {
+        justify-content: center;
+    }
+  
+    .logo {
+        flex: 1;
+    }
+  
+    .item.button {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+    .toggle {
+        order: 2;
+    }
+    .button.secondary {
+        border: 0;
+    }
+    .button a {
+        padding: 7.5px 15px;
+        background: teal;
+        border: 1px #006d6d solid;
+        border-radius:50em;
+    }
+    .button.secondary a {
+        background: transparent;    
+    }
+    .button a:hover {
+        text-decoration: none;
+        transition:all .25s;
+    }
+    .button:not(.secondary) a:hover {
+        background: #006d6d;
+        border-color: #005959;
+    }
+    .button.secondary a:hover {
+        color: #ddd;
+    } 
+  }
+  
+  /* Desktop menu */
+  @media all and (min-width: 768px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+    }
+    .button {
+        order: 2;
+    }
+    .menu li {
+        padding: 10px 10px;
+    }
+    .menu li.button {
+        padding-right: 0;
+    }
+  }
+  .logo img {
+    object-fit: cover; /* Redimensionamento da imagem para preencher o espaço */
+}
+.logopag{
+    padding: 0;
+    width: 320px; /* Largura 100% */
+    height: 70px; /* Altura 100% */
+}
+/* Estilos para a lista de carros */
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 1px;
+    color: red;
+}
+
+.car {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    width: 450px;
+    text-align: center;
+
+}
+
+.car img {
+    max-width: 100%;
+    height: auto;
+}
+/* Estilos para o rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
+}
+#Container {
+    align-items: center;
+    max-width: 100%;
+    position: relative; 
+    background-color: black;
+
+}
+/* Estilos para o botão */
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    text-decoration: none;
+    border-radius: 5px; /* Borda arredondada */
+    font-weight: bold;
+    transition: background-color 0.3s; /* Efeito de transição de cor de fundo */
+}
+
+/* Estilo de hover para o botão */
+.botao:hover {
+    background-color: #0056b3; /* Cor de fundo quando o mouse passa sobre o botão */
+}
+
+/* Estilos para o container */
+/* Estilos para o container */
+.container {
+    display: flex; /* Tornar o container um flex container */
+    justify-content: space-between; /* Distribuir espaço entre os campos */
+    padding: 20px; /* Espaçamento interno do container */
+    flex-wrap: wrap; /* Permite que os campos quebrem para a próxima linha */
+    display: flex;
+  }
+
+
+/* Estilos para os campos */
+.campo {
+    flex: ; /* Cada campo ocupa 50% do espaço disponível */
+    padding: 20px; /* Espaçamento interno dos campos */
+    border: 1px solid #ccc; /* Borda para destacar os campos */
+    box-sizing: border-box; /* Garante que as bordas não aumentem o tamanho total */
+    align-items: center;
+    
+}
+
+/* Estilos para o campo esquerda */
+.campo-esquerda {
+    background-color: #f2f2f2; /* Cor de fundo do campo esquerda */
+    align-items: center;
+  } 
+
+/* Estilos para o campo direita */
+.campo-direita {
+    background-color: #e0e0e0; /* Cor de fundo do campo direita */
+    
+}
+
+/* Estilos para tornar responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Coloca os campos um abaixo do outro */
+    }
+    .campo {
+        flex: auto; /* Ocupa o espaço disponível */
+        margin-bottom: 20px; /* Espaçamento entre os campos quando empilhados */
+    }
+}
+.carfoto{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    width: 450px;
+    text-align: center;
+}
+
+>>>>>>> caf3172dfcd435151ee137d33d21bbbb499a8d8b
