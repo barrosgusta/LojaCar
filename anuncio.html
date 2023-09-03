@@ -35,6 +35,7 @@
     </nav>
     <div class="containeranuncio">
         <div class="formulario-quadro">
+            <form action="consulta.php" method="POST" enctype="multipart/form-data">
             <label for="car_brand">Marca:</label>
             <select name="car_brand" id="car_brand">
                 <option value="">Selecione uma opção</option>
@@ -86,26 +87,59 @@
                 <option value="Elétrico">Elétrico</option>
                 <option value="Híbrido">Híbrido</option>
             </select>
+            <label for="tipo_gasolina">Tipo de Gasolina:</label>
+            <select name="tipo_gasolina" id="tipo_gasolina">
+                <option value="Gasolina Comum">Gasolina Comum</option>
+                <option value="Gasolina Aditivada">Gasolina Aditivada</option>
+                <option value="Etanol">Etanol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Podium">Podium</option>
+                <!-- Adicione mais opções conforme necessário -->
+                </select>
+            <label for="cor">Cor:</label>
+                <select name="cor" id="cor">
+                    <option value="Branco">Branco</option>
+                    <option value="Preto">Preto</option>
+                    <option value="Prata">Prata</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Vermelho">Vermelho</option>
+                    <option value="Verde">Verde</option>
+                    <option value="Amarelo">Amarelo</option>
+                    <option value="Laranja">Laranja</option>
+                    <option value="Cinza">Cinza</option>
+                    <option value="Marrom">Marrom</option>
+                    <option value="Outra">Outra</option>
+                </select>
+            
+            <label for="tipo_cambio">Tipo de Câmbio:</label>
+                <select name="tipo_cambio" id="tipo_cambio">
+                <option value="Automático">Automático</option>
+                <option value="Manual">Manual</option>
+                <option value="Semi-Automático">Semi-Automático</option>
+                <!-- Adicione mais opções conforme necessário -->
+                </select>
             <label>Aspiração</label>
-            <select name="aspiracao_carro">
-                <option value="">Selecione o Tipo de Aspiração</option>
-                <option value="Aspiração Natural">Aspiração Natural</option>
-                <option value="TurboCompressor">TurboCompressor</option>
-                <option value="Supercharger">Supercharger</option>
-                <option value="Híbrido">Híbrido</option>
-                <option value="Elétrico">Elétrico</option>
-            </select>
+                <select name="aspiracao_carro">
+                    <option value="">Selecione o Tipo de Aspiração</option>
+                    <option value="Aspiração Natural">Aspiração Natural</option>
+                    <option value="TurboCompressor">TurboCompressor</option>
+                    <option value="Supercharger">Supercharger</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Elétrico">Elétrico</option>
+                </select>
             <label>Tração</label>
-            <select name="tracao_carro">
-                <option value="">Selecione o Tipo de Tração</option>
-                <option value="Tração Dianteira">Tração Dianteira</option>
-                <option value="Tração Traseira">Tração Traseira</option>
-                <option value="Tração nas Quatro Rodas (4x4)">Tração nas Quatro Rodas (4x4)</option>
-                <option value="Tração nas Quatro Rodas Integral">Tração nas Quatro Rodas Integral</option>
-                <option value="Tração Dianteira com Transmissão nas Quatro Rodas (AWD)">Tração Dianteira com Transmissão nas Quatro Rodas (AWD)</option>
-                <option value="Tração Traseira com Transmissão nas Quatro Rodas (AWD)">Tração Traseira com Transmissão nas Quatro Rodas (AWD)</option>
-                <!-- Adicione mais tipos de tração conforme necessário -->
-            </select>
+                <select name="tracao_carro">
+                    <option value="">Selecione o Tipo de Tração</option>
+                    <option value="Tração Dianteira">Tração Dianteira</option>
+                    <option value="Tração Traseira">Tração Traseira</option>
+                    <option value="Tração nas Quatro Rodas (4x4)">Tração nas Quatro Rodas (4x4)</option>
+                    <option value="Tração nas Quatro Rodas Integral">Tração nas Quatro Rodas Integral</option>
+                    <option value="Tração Dianteira com Transmissão nas Quatro Rodas (AWD)">Tração Dianteira com Transmissão nas Quatro Rodas (AWD)</option>
+                    <option value="Tração Traseira com Transmissão nas Quatro Rodas (AWD)">Tração Traseira com Transmissão nas Quatro Rodas (AWD)</option>
+                    <!-- Adicione mais tipos de tração conforme necessário -->
+                </select>
+            <label for="fotos">Selecione as fotos (várias):</label>
+                <input type="file" name="fotos[]" id="fotos" multiple accept=".png, .jpg, .jpeg">
 
         </form>
     </div>
