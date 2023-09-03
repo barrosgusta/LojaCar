@@ -282,5 +282,64 @@ footer {
     text-align: center;
 }
 
-.containeranuncio{
-  padding: 15px;}
+
+/*  Anúncio Form */
+.containeranuncio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.formulario-quadro {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto; /* Centraliza o quadro horizontalmente */
+}
+
+.formulario-quadro h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formulario-quadro label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.formulario-quadro select,
+.formulario-quadro button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formulario-quadro button {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .containeranuncio {
+      flex-direction: column;
+  }
+
+  .formulario-quadro {
+      max-width: none;
+  }
+}
+
+/* Form anúncio */

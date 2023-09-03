@@ -34,8 +34,10 @@
         </ul>
     </nav>
     <div class="containeranuncio">
-            <label for="car_brand">Marcas:</label>
+        <div class="formulario-quadro">
+            <label for="car_brand">Marca:</label>
             <select name="car_brand" id="car_brand">
+                <option value="">Selecione uma opção</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
                 <option value="Chevrolet">Chevrolet</option>
@@ -67,7 +69,7 @@
             </select>
             <br>
             <label>Ano Modelo</label>
-            <select id="Anofabs" name="Ano de Fabricação">
+            <select id="AnoModelo" name="Ano do Modelo">
                 <option value="">Selecione</option>
             </select>
 
@@ -81,10 +83,25 @@
     </footer>
     
 <script>
+//Ano Modelo
+   // Obtenha a referência do elemento de seleção
+   var selectAnoModelo = document.getElementById("AnoModelo");
 
-    //ANO MODELO
+   // Obtenha o ano atual
+   var anoAtual = new Date().getFullYear();
+
+   // Adicione as opções desde 1960 até o ano atual
+   for (var ano = 1960; ano <= anoAtual; ano++) {
+       var option = document.createElement("option");
+       option.value = ano;
+       option.text = ano;
+       selectAnoModelo.appendChild(option);
+   }
+    //ANO Fabricação
         // Obtenha a referência do elemento de seleção
         var selectAnofabs = document.getElementById("Anofabs");
+        var selectAnoMod = document.getElementById("AnoMod");
+        
 
         // Obtenha o ano atual
         var anoAtual = new Date().getFullYear();
